@@ -1,0 +1,43 @@
+---
+- hosts: dodev
+  become: yes
+  pre_tasks:
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+    - name: Prepare opt directory for traefik
+      become: true
+      file:
+        path: /opt/traefik
+        state: directory
+
+    - name: install pip
+      become: true
+      package:
+        name:
+          - python-pip
+        state: latest
+
+    - name: install certain python modules for docker
+      pip:
+        name: "{{ item.name }}"
+        state: present
+      with_items:
+      - { name: docker}
+
+
+  roles:
+    - common
+    - firewall
+    - fail2ban
+    - docker
+    - traefik
+    - simplenat
+    - gogs
+    - docker-registry
+    - java
+    - gocd_server
+    - gocd_agent

@@ -1,0 +1,18 @@
+
+[public]
+#proxy ansible_host=proxy.hmzoo.xyz ansible_port=22 ansible_user=ec2-user
+dodev ansible_host=hmzoo.org ansible_port=22 ansible_user=root
+[public:vars]
+# ansible_python_interpreter=/usr/bin/python3
+
+
+[private]
+#web1 ansible_host=10.18.1.101
+#web2 ansible_host=10.18.1.102
+
+[private:vars]
+#ansible_python_interpreter=/usr/bin/python3
+#ansible_user=ec2-user
+#ansible_ssh_common_args= '-o ProxyCommand="ssh -W %h:%p -q ec2-user@proxy.hmzoo.xyz"'
+#ansible_user=ubuntu
+#ansible_ssh_common_args= '-o ProxyCommand="ssh -W %h:%p -q ubuntu@proxy.hmzoo.xyz"'
