@@ -34,10 +34,8 @@
     - firewall
     - fail2ban
     - docker
+    - htpasswd
     - traefik
     - simplenat
     - gogs
     - docker-registry
-    - java
-    - gocd_server
-    - gocd_agent

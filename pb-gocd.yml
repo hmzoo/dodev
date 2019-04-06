@@ -1,0 +1,8 @@
+---
+- hosts: dodev
+  become: yes
+
+  roles:
+    - java
+    - gocd_server
+    - gocd_agent

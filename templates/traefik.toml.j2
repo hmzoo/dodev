@@ -50,6 +50,9 @@ watch = true
   [backends.registry]
      [backends.registry.servers.server1]
         url = "http://localhost:5000"
+  [backends.gocd]
+     [backends.gocd.servers.server1]
+        url = "http://localhost:8153"
 
 [frontends]
   [frontends.traefik-ui]
@@ -74,3 +77,10 @@ watch = true
   passHostHeader = true
     [frontends.gogs.routes.server1]
     rule = "Host: git.{{ main_domain }}"
+
+  [frontends.gocd]
+  entryPoints = ["http","https"]
+  backend = "gocd"
+  passHostHeader = true
+    [frontends.gocd.routes.server1]
+    rule = "Host: ci.{{ main_domain }}"

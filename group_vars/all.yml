@@ -41,3 +41,6 @@ pip_install_packages:
 #GOCD
 sansible_gocd_server_dependencies_skip_java: yes
 sansible_gocd_agent_dependencies_skip_java: yes
+sansible_gocd_server_version: 19.*
+sansible_gocd_server_passwd_users:
+        hmj: "{{ lookup('env','GOCD_HMJ_PASSWD') }}"
