@@ -1,4 +1,7 @@
 ---
+- name: ansible
+  src: geerlingguy.ansible
+  
 - name: fail2ban
   src: robertdebock.fail2ban
 

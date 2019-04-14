@@ -1,0 +1,6 @@
+---
+- hosts: dodev
+  become: yes
+
+  roles:
+    - nodejs
